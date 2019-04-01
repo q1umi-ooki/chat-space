@@ -52,7 +52,7 @@
 |text|text|null: true|
 |image|string|null: true|
 |user_id|references|foreign_key: true|
-|group_id|refernces|foreign_key: true|
+|group_id|references|foreign_key: true|
 
 
 ### Association
