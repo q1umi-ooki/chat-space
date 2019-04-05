@@ -1,0 +1,17 @@
+@mixin char-group($color, $font-size, $padding-top){
+  color: $color;
+  font-size: $font-size;
+  padding-top: $padding-top;
+
+}
+
+@mixin char-headline($color, $font-size){
+  color: $color;
+  font-size: $font-size;
+  font-weight: bold;
+}
+
+@mixin char-main($color, $font-size){
+  color: $color;
+  font-size: $font-size;
+}
