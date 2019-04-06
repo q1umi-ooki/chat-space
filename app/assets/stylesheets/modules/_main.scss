@@ -1,0 +1,68 @@
+
+main{
+  flex-basis: calc(100vw - 300px);
+  height: calc(100vh - 98px);
+  .main__content{
+    background-color: #fafafa;
+    height: calc(100vh - 234px);
+    padding:46px 40px 0px 40px;
+      &__box{
+      overflow: hidden;
+        &__user{
+    @include char-main($color-text, 16px);
+    font-weight: bold;
+    float:left;
+      }
+        &__dates{
+    @include char-main(#999999, 12px);
+    float:left;
+    margin-left: 10px;
+      }
+        &__text{
+    @include char-main($color-text, 14px);
+    clear:left;
+    padding: 10px 0 40px 0px;
+      }
+    }
+  }
+  .input-box{
+    height: 90px;
+    background-color:#ddd;
+    position: relative;
+    .chat-box{
+    padding:20px 40px;
+    @include space-between;
+      &__text{
+    height:50px;
+    width: 100%;
+    padding:0 10px;
+    margin-right:15px;
+    box-sizing: border-box ;
+    position: relative;
+      }
+      &__image{
+    position: relative;
+        &__icon{
+    line-height: 50px;
+    position: absolute;
+    right:25px;
+        }
+        &__icon input{
+      display: none;
+        }
+      }
+      &__send{
+   color: $color-white;
+   background-color: $color-accent;
+   height: 50px;
+   padding:0 27px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
