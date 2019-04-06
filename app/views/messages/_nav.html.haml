@@ -6,7 +6,7 @@
       %li.my-content__icon
         %a.my-content__icon__left{href: "#"}
           =fa_icon("edit")
-        =link_to edit_user_path(current_user), {class: "my-content__icon__right" } do
+        =link_to edit_user_path(current_user), class: "my-content__icon__right" do
           =fa_icon("cog")
     .group-content
       %ul.group-content__detail
