@@ -9,20 +9,19 @@
       font-size: 16px;
       font-weight: bold;
       padding:39px 0 0 20px;
-      }
+  }
   &__icon{
-      color: $color-white
-  ;
+      color: $color-white;
       @include flex-row;
       padding:39px 20px 0 0;
       &__left, &__right{
           color: $color-white;
           display: block;
-            }
+    }
       &__left{
           margin-right:5px;
-            }
-        }
+    }
+  }
 }
 
 
@@ -51,7 +50,6 @@
   padding: 0 20px;
   line-height:40px;
   text-decoration: none;
-
     }
   }
 }

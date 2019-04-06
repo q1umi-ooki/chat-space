@@ -1,0 +1,30 @@
+%section
+  .section__container
+    .sidebar
+      %ul.sidebar__headline
+        %li.sidebar__headline__group test-group
+        %li.sidebar__headline__message さようなら
+      %ul.sidebar__headline
+        %li.sidebar__headline__group sample-group
+        %li.sidebar__headline__message hello!
+      %ul.sidebar__headline
+        %li.sidebar__headline__group example
+        %li.sidebar__headline__message まだメッセージがありません。
+    %main
+      .main__content
+        %ul.main__content___box
+          %li.main__content__box__user test-user
+          %li.main__content__box__dates 2019/04/04 12:34:48
+          %li.main__content__box__text Hello World!
+        %ul.main__content___box
+          %li.main__content__box__user some-user
+          %li.main__content__box__dates 2019/04/04 12:34:55
+          %li.main__content__box__text Good Bye!
+      .input-box
+        %form.chat-box{action: "#", method: "post"}
+          %input.chat-box__text{type:"text", name:"text", placeholder: "type a message"}
+          .input.chat-box__image
+            %label.chat-box__image__icon{for:"image_upload"}
+              =fa_icon("image lg")
+              %input{type:"file", id:"image_upload"}
+          %input.chat-box__send{type:"submit", name:"submit", value: "Send"}
