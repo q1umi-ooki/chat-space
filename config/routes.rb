@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'messages#index'
   resources :users, only: [:edit, :update]
-  resources :messages, only: [:index]
-
+  resources :group, only: [:new, :create, :edit, :update] do
+    resources :messages, only: [:index]
+  end
 end
