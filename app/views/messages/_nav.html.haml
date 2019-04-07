@@ -4,7 +4,7 @@
       %li.my-content__name
         =current_user.name
       %li.my-content__icon
-        %a.my-content__icon__left{href: "#"}
+        =link_to new_group_path ,class: "my-content__icon__left" do
           =fa_icon("edit")
         =link_to edit_user_path(current_user), class: "my-content__icon__right" do
           =fa_icon("cog")
