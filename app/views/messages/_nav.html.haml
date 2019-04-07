@@ -1,11 +1,12 @@
 %nav
   .nav__container
     %ul.my-content
-      %li.my-content__name test-user
+      %li.my-content__name
+        =current_user.name
       %li.my-content__icon
         %a.my-content__icon__left{href: "#"}
           =fa_icon("edit")
-        %a.my-content__icon__right{href: "#"}
+        =link_to edit_user_path(current_user), class: "my-content__icon__right" do
           =fa_icon("cog")
     .group-content
       %ul.group-content__detail
