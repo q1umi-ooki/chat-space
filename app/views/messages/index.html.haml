@@ -1,3 +1,11 @@
-
-= render partial: "nav"
-= render partial: "section"
+%nav
+  .nav__container
+    =render partial:"my-content"
+    =render partial:"group-content"
+%section
+  .section__container
+    .sidebar
+      =render partial:"sidebar"
+    %main
+      =render partial:"main-content"
+      =render partial:"input-box"

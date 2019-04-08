@@ -3,6 +3,7 @@
 .my-content{
   background-color: #253141;
   flex-basis: 300px;
+  height: 99px;
   @include space-between;
   &__name{
       color: $color-white;

@@ -1,0 +1,7 @@
+- current_user.groups.each do |group|
+  = link_to group_messages_path(group) do
+    %ul.sidebar__headline
+      %li.sidebar__headline__group
+        =group.name
+      %li.sidebar__headline__message メッセージはまだありません。
+

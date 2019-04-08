@@ -1,0 +1,8 @@
+.input-box
+  %form.chat-box{action: "#", method: "post"}
+    %input.chat-box__text{type:"text", name:"text", placeholder: "type a message"}
+    .input.chat-box__image
+      %label.chat-box__image__icon{for:"image_upload"}
+        =fa_icon("image lg")
+        %input{type:"file", id:"image_upload"}
+    %input.chat-box__send{type:"submit", name:"submit", value: "Send"}
