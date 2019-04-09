@@ -33,29 +33,29 @@ main{
     padding:20px 40px;
     @include space-between;
       &__text{
-    height:50px;
-    width: 100%;
-    padding:0 10px;
-    margin-right:15px;
-    box-sizing: border-box ;
-    position: relative;
+      height:50px;
+      width: 100%;
+      padding:0 10px;
+      margin-right:15px;
+      box-sizing: border-box ;
+      position: relative;
       }
       &__image{
-    position: relative;
+      position: relative;
         &__icon{
-    line-height: 50px;
-    position: absolute;
-    right:25px;
+        line-height: 50px;
+        position: absolute;
+        right:25px;
         }
         &__icon input{
-      display: none;
+        display: none;
         }
       }
       &__send{
-   color: $color-white;
-   background-color: $color-accent;
-   height: 50px;
-   padding:0 27px;
+      color: $color-white;
+      background-color: $color-accent;
+      height: 50px;
+      padding:0 27px;
       }
     }
   }

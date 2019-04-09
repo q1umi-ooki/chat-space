@@ -1,7 +1,13 @@
 .group-content
   %ul.group-content__detail
-    %li.group-content__detail__name test-group
-    %li.group-content__detail__member Member
+    %li.group-content__detail__name
+      = @group.name
+    %li.group-content__detail__member
+      %p Member :
+      %p.group-content__detail__member__user
+        - @users.each do |user|
+          = user.name + ", "
+
   .group-content__button
-    =link_to "Edit","/groups/1/edit"
+    =link_to "Edit", edit_group_path(@group)
 

@@ -1,0 +1,10 @@
+%ul.main__content___box
+  %li.main__content__box__user
+    = message.user.name
+  %li.main__content__box__dates
+    = message.created_at.strftime("%Y/%m/%d %H:%M")
+  %li.main__content__box__text
+    -if message.text.present?
+      %p.main__content__box__text__text
+        = message.text
+    = image_tag message.image.url, class: "main__content__box__text__image" if message.image.present?

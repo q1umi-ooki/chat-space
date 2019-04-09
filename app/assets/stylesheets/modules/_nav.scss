@@ -38,7 +38,12 @@
       @include char-group(#333333, 20px, 35px)
     }
     &__member{
+      @include flex-row;
       @include char-group(#999999, 12px, 15px);
+      &__user{
+        display: inline-block;
+        padding: 0 5px
+      }
     }
   }
   &__button{
