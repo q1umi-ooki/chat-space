@@ -7,5 +7,6 @@
     .sidebar
       =render partial:"sidebar"
     %main
-      =render partial:"main-content"
+      .main__content
+        =render @messages
       =render partial:"input-box"
