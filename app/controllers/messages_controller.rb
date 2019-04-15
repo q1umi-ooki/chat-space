@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(@group), notice: "chatが投稿できました。"
     else
-      @messages = group.messages.includes(:user)
+      @messages = @group.messages.includes(:user)
       flash.now[:alert] = "もう一度メッセージを入力してください"
       render :index
     end
