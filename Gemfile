@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'  #bundleinstallのためhttps→http
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -69,4 +69,5 @@ gem 'carrierwave'
 
 gem 'mini_magick'
 
+# gem 'jquery-turbolinks'
 

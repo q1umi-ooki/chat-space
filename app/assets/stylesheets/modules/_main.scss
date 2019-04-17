@@ -6,6 +6,7 @@ main{
     background-color: #fafafa;
     height: calc(100vh - 234px);
     padding:46px 40px 0px 40px;
+    overflow: auto;
       &__box{
       overflow: hidden;
         &__user{

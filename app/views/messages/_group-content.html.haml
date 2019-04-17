@@ -3,7 +3,7 @@
     %li.group-content__detail__name
       = @group.name
     %li.group-content__detail__member
-      %p Member :
+      %p.group-content__detail__member__label Member :
       %p.group-content__detail__member__user
         - @users.each do |user|
           = user.name + ", "
