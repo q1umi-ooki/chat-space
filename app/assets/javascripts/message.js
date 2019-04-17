@@ -1,40 +1,21 @@
 $(function(){
     function buildHTML(message){
-        let imageHTML = `${message.image}`
-        if (imageHTML !== `null`) {
-        var html = `<ul class="main__content__box">
+        let imageHtml = message.image == null ? "" : `<img src="${message.image}">`
+        let html = `<ul class="main__content__box">
         <li class="main__content__box__user">
             ${message.user_name}</li>
         <li class="main__content__box__dates">
             ${message.daytime}</li>
         <li class="main__content__box__text">
             <p class="main__content__box__text__text">
-                ${message.text}</p></li>
-        </ul>`
+                ${message.text}</p>${imageHtml}</li> 
+    </ul>`
         return html;
-        } else {
-        var html = `<ul class="main__content__box">
-        <li class="main__content__box__user">
-            ${message.user_name}</li>
-        <li class="main__content__box__dates">
-            ${message.daytime}</li>
-        <li class="main__content__box__text">
-            <p class="main__content__box__text__text">
-                ${message.text}</p>
-            <img class="main__content__box__text__image" src="${message.image}"></li>
-        </ul>`;
-        return html;
-        }
-    }
-
+    }  
    
     
     $(".chat-box").on('submit',function(e){
         e.preventDefault();
-        let lastMessage = $('.main__content__box')
-        if (lastMessage.length !==0 ){
-        $(".main__content__box:last").removeClass('last-message');
-        }
         let formData = new FormData(this);
         let url = $(".chat-box").attr('action');
         $.ajax({
@@ -49,12 +30,7 @@ $(function(){
             let html = buildHTML(data);
             $('.main__content').append(html);
             $('.main__content__box:last').addClass('last-message');  
-            let targetY = $('.last-message').offset().top
-            let targetHeight = $('.last-message').height()
-            let target = targetY + targetHeight
-            if (target > 650){
-            $(".main__content").animate({scrollTop:target});
-            }
+            $(".main__content").animate({scrollTop:$(".main__content")[0].scrollHeight});
             $('.chat-box__text').val('');
         })
         .fail(function(){
