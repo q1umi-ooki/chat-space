@@ -1,6 +1,8 @@
 $(function(){
     function buildHTML(message){
-        let html = `<ul class="main__content__box">
+        let imageHTML = `${message.image}`
+        if (imageHTML !== `null`) {
+        var html = `<ul class="main__content__box">
         <li class="main__content__box__user">
             ${message.user_name}</li>
         <li class="main__content__box__dates">
@@ -8,10 +10,23 @@ $(function(){
         <li class="main__content__box__text">
             <p class="main__content__box__text__text">
                 ${message.text}</p></li>
-            <img class="main__content__box__text__image" src="${message.image}"> 
-    </ul>`
+        </ul>`
         return html;
-    }  
+        } else {
+        var html = `<ul class="main__content__box">
+        <li class="main__content__box__user">
+            ${message.user_name}</li>
+        <li class="main__content__box__dates">
+            ${message.daytime}</li>
+        <li class="main__content__box__text">
+            <p class="main__content__box__text__text">
+                ${message.text}</p>
+            <img class="main__content__box__text__image" src="${message.image}"></li>
+        </ul>`;
+        return html;
+        }
+    }
+
    
     
     $(".chat-box").on('submit',function(e){
@@ -32,14 +47,7 @@ $(function(){
         })
         .done(function(data){
             let html = buildHTML(data);
-            let imageData = data.image;
-            if (!imageData) {
             $('.main__content').append(html);
-            $('.main__content__box__text__image').replaceWith('<p class="main__content__box__text__text"></p>')
-            }
-            else {
-            $('.main__content').append(html);  
-            }
             $('.main__content__box:last').addClass('last-message');  
             let targetY = $('.last-message').offset().top
             let targetHeight = $('.last-message').height()
