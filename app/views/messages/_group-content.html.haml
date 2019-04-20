@@ -1,5 +1,5 @@
 .group-content
-  %ul.group-content__detail
+  %ul{class: 'group-content__detail',data:{group_id: @group.id}}
     %li.group-content__detail__name
       = @group.name
     %li.group-content__detail__member
