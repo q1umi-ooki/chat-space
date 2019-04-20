@@ -2,6 +2,7 @@
   text-decoration: none;
 }
 .sidebar{
+  overflow-y:auto;
   flex-basis: 300px;
   background-color: #2f3e51;
   height: calc(100vh - 98px);

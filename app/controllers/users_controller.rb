@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
 
+  def index 
+    @group = Group.find(params[:group_id])
+    @members = @group.users
+    @searchedUsers = User.where('name LIKE(?)', "#{params[:name]}%") #.where.not(id: current_user.id)
+    @users = @searchedUsers - @members
+      respond_to do |format|
+          format.html 
+          format.json
+      end 
+  end
+
   def edit
   end
 
