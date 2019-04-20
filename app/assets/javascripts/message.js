@@ -3,7 +3,7 @@ $(function(){
 
     function buildHTML(message){
         let imageHtml = message.image == null ? "" : `<img src="${message.image}">`
-        let html = `<ul class="main__content__box" data:{message_id: ${message.id}}>
+        let html = `<ul class="main__content__box" data-message-id="${message.id}">
         <li class="main__content__box__user">
             ${message.user_name}</li>
         <li class="main__content__box__dates">
@@ -16,7 +16,7 @@ $(function(){
     }      
     function buildReloadHTML(message){
         let imageHtml = message.image == null ? "" : `<img src="${message.image}">`
-        let html = `<ul class="main__content__box" data:{message_id: ${message.id}}>
+        let html = `<ul class="main__content__box" data-message-id="${message.id}">
         <li class="main__content__box__user">
             ${message.user_name}</li>
         <li class="main__content__box__dates">
@@ -59,7 +59,7 @@ $(function(){
         let groupId = $('.group-content__detail').data('group-id');
         let last_message = $('.main__content__box:last');
         let last_message_id = last_message.data('message-id');
-        last_message.addClass('last-message');
+        console.log(last_message_id)
 
         $.ajax({
           //ルーティングで設定した通りのURLを指定
