@@ -61,10 +61,10 @@ $(function(){
     });
 
     $(document).on('click','.user-search-add',function(){
-        let selectedMemberId = $(this).data('user-id');
-        let selectedMemberName = $(this).data('user-name');
+        let userId = $(this).data('user-id');
+        let userName = $(this).data('user-name');
         $(this).parents('.chat-group-user').remove();
-        addGroupMember(selectedMemberId, selectedMemberName);
+        addGroupMember(userId, userName);
     });
     
 
