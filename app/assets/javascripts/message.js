@@ -11,8 +11,7 @@ $(function(){
                 ${message.text}</p>${imageHtml}</li> 
     </ul>`
         return html;
-    }  
-   
+    }      
     
     $(".chat-box").on('submit',function(e){
         e.preventDefault();
