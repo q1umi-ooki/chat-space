@@ -9,5 +9,5 @@
           = user.name + ", "
 
   .group-content__button
-    =link_to "Edit", edit_group_path(@group)
+    =link_to "Edit", edit_group_path(@group), data:{turbolinks: "false"},id:'prepare-member'
 

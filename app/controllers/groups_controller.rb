@@ -7,7 +7,8 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user
+    @users = @group.users 
+    @users << current_user
   end
 
   def create
@@ -16,9 +17,16 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to root_path, notice: 'グループを作成しました'
     else
+      @users = @group.users
+      flash.now[:alert] = "グループ作成に失敗しました"
       render :new
     end
   end
+
+  def edit
+    @users = @group.users
+  end
+
 
   def update
     if @group.update(group_params)
