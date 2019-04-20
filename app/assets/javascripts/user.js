@@ -25,10 +25,7 @@ $(function(){
       addMember.append(html);
     }
 
-    let memberId = $('.chat-group-user__name').data('id')
-    console.log(memberId);
-
-    //あらかじめ存在しているメンバーの削除アクション 
+   
     $('.user-search-remove').on('click',function(){
         $(this).parents('.chat-group-user').remove();
     })
@@ -40,7 +37,7 @@ $(function(){
             return e;
         })
         let groupId = $('#chat-group-users').data('group-id')
-        console.log(groupId);     
+      
         if (input !== "" && inputWhiteSpace) {
             $.ajax({
                 type: 'GET',
@@ -49,12 +46,8 @@ $(function(){
                 dataType: 'json'
             })
             .done(function(users){
-                console.log(users.ids)
                 if (users.length !== 0) {
-                    console.log(users.length !== 0);
                     users.forEach(function(user){
-                        console.log(user);
-                        console.log(user.name);
                         appendUser(user);
                     });
                 } else {
@@ -66,17 +59,15 @@ $(function(){
             })
            }
     });
-//追加アクション
+
     $(document).on('click','.user-search-add',function(){
         let selectedMemberId = $(this).data('user-id');
         let selectedMemberName = $(this).data('user-name');
         $(this).parents('.chat-group-user').remove();
         addGroupMember(selectedMemberId, selectedMemberName);
-        let memberId = $('.chat-group-user__name').data('id');
-        console.log(memberId); 
     });
     
-//javaScript追加の削除アクション
+
     $(document).on('click','.user-search-remove',function(){
         $(this).parents('.chat-group-user').remove();
     });
