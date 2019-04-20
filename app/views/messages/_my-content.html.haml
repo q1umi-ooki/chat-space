@@ -2,7 +2,7 @@
   %li.my-content__name
     =current_user.name
   %li.my-content__icon
-    =link_to new_group_path ,class: "my-content__icon__left" do
+    =link_to new_group_path ,class: "my-content__icon__left",data:{turbolinks: false} do
       =fa_icon("edit")
     =link_to edit_user_path(current_user), class: "my-content__icon__right" do
       =fa_icon("cog")
