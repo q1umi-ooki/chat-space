@@ -27,7 +27,7 @@ $(function(){
     </ul>`
         $('.main__content').append(html);
     }
-
+    
     $(".chat-box").on('submit',function(e){
         e.preventDefault();
         let formData = new FormData(this);
@@ -74,12 +74,15 @@ $(function(){
           console.log('success');
           messages.forEach(function(message){
           buildReloadHTML(message);
-          $(".main__content").animate({scrollTop:$(".main__content")[0].scrollHeight});
           });
         })
         .fail(function() {
           console.log('error');
-        });
+        })
+        .always(function(){
+            $(".main__content").animate({scrollTop:$(".main__content")[0].scrollHeight});
+        })
       };
-      setInterval(reloadMessages, 5000);
+      
+      setInterval(reloadMessages, 3000);
 });
