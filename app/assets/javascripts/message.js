@@ -41,8 +41,7 @@ $(function(){
     });
      let reloadMessages = function() {
         let groupId = $('.group-content__detail').data('group-id');
-        let lastMessage = $('.main__content__box:last');
-        let lastMessageId = lastMessage.data('message-id');
+        let lastMessageId = $('.main__content__box:last').data('message-id');
 
         $.ajax({
             url: ` /groups/${groupId}/api/messages`,
