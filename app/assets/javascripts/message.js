@@ -45,18 +45,18 @@ $(function(){
         let last_message_id = last_message.data('message-id');
 
         $.ajax({
-          url: ` /groups/${groupId}/api/messages`,
-          type: 'get',
-          dataType: 'json',
-          data: {id: last_message_id}
+            url: ` /groups/${groupId}/api/messages`,
+            type: 'get',
+            dataType: 'json',
+            data: {id: last_message_id}
         })
         .done(function(messages) {
-          messages.forEach(function(message){
-          let html = buildHTML(message);
-          $('.main__content').append(html);
-          });
+            messages.forEach(function(message){
+            let html = buildHTML(message);
+            $('.main__content').append(html);
+            });
         })
-        .fail(function() {
+        .fail(function() {    
         })
         .always(function(){
             $(".main__content").animate({scrollTop:$(".main__content")[0].scrollHeight});
