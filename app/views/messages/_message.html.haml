@@ -1,4 +1,4 @@
-%ul.main__content___box
+%ul.main__content__box{data:{message_id: message.id}}
   %li.main__content__box__user
     = message.user.name
   %li.main__content__box__dates
@@ -7,4 +7,3 @@
     -if message.text.present?
       %p.main__content__box__text__text
         = message.text
-    = image_tag message.image.url, class: "main__content__box__text__image" if message.image.present?
