@@ -41,22 +41,20 @@ $(function(){
     });
      let reloadMessages = function() {
         let groupId = $('.group-content__detail').data('group-id');
-        let last_message = $('.main__content__box:last');
-        let last_message_id = last_message.data('message-id');
+        let lastMessage = $('.main__content__box:last');
+        let lastMessageId = lastMessage.data('message-id');
 
         $.ajax({
             url: ` /groups/${groupId}/api/messages`,
             type: 'get',
             dataType: 'json',
-            data: {id: last_message_id}
+            data: {id: lastMessageId}
         })
         .done(function(messages) {
-            messages.forEach(function(message){
-            let html = buildHTML(message);
-            $('.main__content').append(html);
+                messages.forEach(function(message){
+                let html = buildHTML(message);
+                $('.main__content').append(html);
             });
-        })
-        .fail(function() {    
         })
         .always(function(){
             $(".main__content").animate({scrollTop:$(".main__content")[0].scrollHeight});
