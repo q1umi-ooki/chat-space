@@ -51,7 +51,7 @@ $(function(){
             data: {id: lastMessageId}
         })
         .done(function(messages) {
-                messages.forEach(function(message){
+            messages.forEach(function(message){
                 let html = buildHTML(message);
                 $('.main__content').append(html);
             });
