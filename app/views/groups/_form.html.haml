@@ -10,7 +10,7 @@
       =f.label :name,  "グループ名", class: "chat-group-form__label",for: "chat_group_name"
     .chat-group-form__field--right
       =f.text_field :name, id: "chat_group_name", class: "chat-group-form__input", placeholder: "グループ名を入力してください"
-  .chat-group-form__field.clearfix#get-group-id{data:{group_id: group.id}}
+  .chat-group-form__field.clearfix#get-group-id
     =render partial: 'users/form'
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
@@ -18,13 +18,13 @@
     .chat-group-form__field--right
       %div{id:'chat-group-users', data:{group_id: group.id}}
         %div{class: 'chat-group-user clearfix',data:{id: current_user.id}}
-          %input{id:'group_user_ids', name:'group[user_ids][]', type:'hidden', value: current_user.id} 
+          %input{class:'group_user_ids', name:'group[user_ids][]', type:'hidden', value: current_user.id} 
           %p{class:'chat-group-user__name', data:{id: @users.ids}}
             =current_user.name        
       -@users.each do |user|
         -if (user.id != current_user.id)
           %div{class:'chat-group-user clearfix', data:{id: user.id, name: user.name}}
-            %input{id: 'group_user_ids', name:'group[user_ids][]', type:'hidden', value: user.id}
+            %input{class: 'group_user_ids', name:'group[user_ids][]', type:'hidden', value: user.id}
             %p.chat-group-user__name
               =user.name
             %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除

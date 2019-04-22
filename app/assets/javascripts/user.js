@@ -18,14 +18,13 @@ $(function(){
     function addGroupMember(userId, userName){
         let addMember = $('#add-group-users');
         let html = `<div class='chat-group-user clearfix js-chat-member' data-id='${userId}' data-name='${userName}'>
-        <input name='group[user_ids][]' type='hidden' value='${userId}'>
+        <input class='group_user_ids' name='group[user_ids][]' type='hidden' value='${userId}'>
         <p class='chat-group-user__name' data-id='${userId}'>${userName}</p>
         <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
       </div>`
       addMember.append(html);
     }
 
-   
     $('.user-search-remove').on('click',function(){
         $(this).parents('.chat-group-user').remove();
     })
@@ -34,15 +33,14 @@ $(function(){
         $('#add-user').empty();
         let input = $('#user-search-field').val(); 
         let inputWhiteSpace = input.split(" ").filter(function(e){
-            return e;
+            return e;     
         })
-        let groupId = $('#chat-group-users').data('group-id')
-      
+        
         if (input !== "" && inputWhiteSpace) {
             $.ajax({
                 type: 'GET',
                 url: '/users',
-                data: {name: input, group_id: groupId},
+                data: {name: input},
                 dataType: 'json'
             })
             .done(function(users){
