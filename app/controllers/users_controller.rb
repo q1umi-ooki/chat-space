@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_group, only: [:index]
 
-  def index    
-    @members = @group.users
-    @searchedUsers = User.where('name LIKE(?)', "#{params[:name]}%")
-    @users = @searchedUsers - @members
+  def index   
+    @users = User.where('name LIKE(?)', "#{params[:name]}%").where.not(id: current_user)
       respond_to do |format|
           format.html 
           format.json
-      end 
+      end
   end
 
   def edit
@@ -23,12 +20,9 @@ class UsersController < ApplicationController
   end
 
 private
+
   def user_params
     params.require(:user).permit(:name, :email)
-  end
-
-  def set_group
-    @group = Group.find(params[:group_id])
   end
 
 end
