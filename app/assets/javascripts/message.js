@@ -31,6 +31,7 @@ $(function(){
             $('.main__content').append(html);  
             $(".main__content").animate({scrollTop:$(".main__content")[0].scrollHeight});
             $('.chat-box__text').val('');
+            $('#image_upload').val('')
         })
         .fail(function(){
             alert('メッセージが上手く送信されませんでした')
